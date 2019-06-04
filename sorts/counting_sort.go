@@ -5,8 +5,8 @@ func CountingSort(arr []int) (result []int) {
 		result = arr
 		return
 	}
-	var max = int(uint32(0) >> 1)
-	var min = -int(uint32(0) >> 1)
+	var max = -int(^uint32(0) >> 1)
+	var min = int(^uint32(0) >> 1)
 	result = make([]int, len(arr))
 	for _, v := range arr {
 		if max < v {
