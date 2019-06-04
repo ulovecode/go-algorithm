@@ -11,8 +11,6 @@ func SelectSort(arr []int) {
 				curV = arr[j]
 			}
 		}
-		temp := arr[i]
-		arr[i] = arr[pIndex]
-		arr[pIndex] = temp
+		arr[i], arr[pIndex] = arr[pIndex], arr[i]
 	}
 }
