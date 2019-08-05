@@ -16,5 +16,23 @@
 package cn
 
 func longestPalindrome(s string) string {
-
+	if s == "" {
+		return ""
+	}
+	length := len(s)
+	var dp = make([][]bool, length)
+	for i := range dp {
+		dp[i] = make([]bool, length)
+	}
+	begin, end := 0, 0
+	for i := length - 1; i >= 0; i-- {
+		for j := i; j < length; j++ {
+			dp[i][j] = (j-i < 2 || dp[i+1][j-1]) && s[i] == s[j]
+			if dp[i][j] && j-i > end-begin {
+				begin = i
+				end = j
+			}
+		}
+	}
+	return s[begin : end+1]
 }

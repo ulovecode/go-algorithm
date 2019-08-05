@@ -16,6 +16,11 @@ func Test_longestPalindrome(t *testing.T) {
 			struct{ s string }{s: "cbbd"},
 			"bb",
 		},
+		{
+			"2",
+			struct{ s string }{s: "abcda"},
+			"a",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
