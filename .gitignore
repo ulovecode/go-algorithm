@@ -24,3 +24,5 @@ gen
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
+leetcode-plugin/cn/all.json
+leetcode-plugin/cn/translation.json

@@ -1,5 +1,6 @@
 package sorts
 
+//分组排序
 func ShellSort(nums []int) []int {
 	//外层步长控制
 	for step := len(nums) / 2; step > 0; step /= 2 {
