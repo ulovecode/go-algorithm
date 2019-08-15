@@ -12,18 +12,21 @@ func MergeSort(arr []int) []int {
 
 func Merge(left []int, right []int) (result []int) {
 	for j, i := 0, 0; i < len(left) || j < len(right); {
-		if i == len(left) {
-			result = append(result, right[j])
-		}
-		if j == len(right) {
-			result = append(result, left[i])
-		}
 		if left[i] >= right[j] {
 			result = append(result, right[j])
-		}
-		if left[i] < right[j] {
+			j++
+		} else if left[i] < right[j] {
 			result = append(result, left[i])
+			i++
 		}
+		if i == len(left) {
+			result = append(result, right[j])
+			j++
+		} else if j == len(right) {
+			result = append(result, left[i])
+			i++
+		}
+
 	}
 	return
 }
