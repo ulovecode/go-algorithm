@@ -45,12 +45,15 @@ func kmpMatch(s string, m string) int {
 	}
 	index := -1
 	if mi == mlen {
-		index = si
+		index = si - mlen
 	}
 	return index
 }
 
 func getNextArray(m string) []int {
+	if len(m) <= 2 {
+		return []int{-1, 0}
+	}
 	next := make([]int, len(m))
 	next[0] = -1
 	next[1] = 0
