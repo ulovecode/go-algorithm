@@ -47,7 +47,26 @@ package cn
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func rotate(matrix [][]int) {
-
+	tr := 0
+	tc := 0
+	dr := len(matrix) - 1
+	dc := len(matrix[0]) - 1
+	for tr < dr {
+		rotateEdge(matrix, tr, tc, dr, dc)
+		tr++
+		tc++
+		dr--
+		dc--
+	}
 }
 
-//leetcode submit region end(Prohibit modification and deletion)
+func rotateEdge(matrix [][]int, tr int, tc int, dr int, dc int) {
+	times := dc - tc
+	for i := 0; i < times; i++ {
+		tmp := matrix[tr][tc+i]
+		matrix[tr][tc+i] = matrix[dr-i][tc]
+		matrix[dr-i][tc] = matrix[dr][dc-i]
+		matrix[dr][dc-i] = matrix[tr+i][dc]
+		matrix[tr+i][dc] = tmp
+	}
+}

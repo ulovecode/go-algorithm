@@ -39,17 +39,5 @@ func numIslands(grid [][]byte) int {
 }
 
 func landSearch(grid [][]byte, i int, j int) {
-	if i < 0 || i >= len(grid) || j < 0 || j >= len(grid[0]) {
-		return
-	}
-	if grid[i][j] == 0 {
-		return
-	}
-	if grid[i][j] == 1 {
-		grid[i][j] = 0
-	}
-	landSearch(grid, i-1, j)
-	landSearch(grid, i+1, j)
-	landSearch(grid, i, j-1)
-	landSearch(grid, i, j+1)
+
 }
