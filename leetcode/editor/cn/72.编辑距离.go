@@ -1,7 +1,5 @@
 package cn
 
-import "math"
-
 //给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。
 //
 // 你可以对一个单词进行如下三种操作：
@@ -37,26 +35,35 @@ import "math"
 
 //leetcode submit region begin(Prohibit modification and deletion)
 func minDistance(word1 string, word2 string) int {
-	w1Len := len(word1)
-	w2Len := len(word2)
-	var dp = make([][]int, w1Len+1)
+	w1Len, w2Len := len(word1), len(word2)
+	dp := make([]int, w2Len+1)
 	for i := range dp {
-		dp[i] = make([]int, w2Len+1)
-		dp[i][0] = i
+		dp[i] = i
 	}
-	for i := range dp[0] {
-		dp[0][i] = i
-	}
-	for i := 1; i < w1Len+1; i++ {
-		for j := 1; j < w2Len+1; j++ {
-			if word1[i-1] == word2[j-1] {
-				dp[i][j] = dp[i-1][j-1]
+	preDP := dp
+	for i := 0; i < w1Len; i++ {
+		dp = make([]int, w2Len+1)
+		dp[0] = i + 1
+		for j := 0; j < w2Len; j++ {
+			if word1[i] == word2[j] {
+				dp[j+1] = preDP[j]
 			} else {
-				dp[i][j] = int(math.Min(math.Min(float64(dp[i-1][j]), float64(dp[i][j-1])), float64(dp[i-1][j-1]))) + 1
+				// 替换
+				c := preDP[j]
+				// 新增
+				if c > dp[j] {
+					c = dp[j]
+				}
+				//删除
+				if c > preDP[j+1] {
+					c = preDP[j+1]
+				}
+				dp[j+1] = c + 1
 			}
 		}
+		preDP = dp
 	}
-	return dp[w1Len][w2Len]
+	return dp[w2Len]
 }
 
 //leetcode submit region end(Prohibit modification and deletion)

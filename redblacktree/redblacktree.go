@@ -237,7 +237,7 @@ func (t *Tree) Delete(key int64) {
 	t.delete(z)
 }
 
-func (t *Tree) delete(z *Node) *Node {
+func (t *Tree) delete(z *Node) {
 	// fmt.Printf("del: %+v\n", z)
 
 	var x, y *Node
@@ -251,13 +251,16 @@ func (t *Tree) delete(z *Node) *Node {
 		t.replace(z, z.left)
 	} else {
 		y = z.successor()
+		z.key = y.key
+		z.value = y.value
 		if y.left != nil {
 			x = y.left
-		} else {
+		} else if y.right != nil {
 			x = y.right
 		}
-		x.parent = y.parent
-
+		if x != nil {
+			x.parent = y.parent
+		}
 		if y.parent == nil {
 			t.root = x
 		} else {
@@ -274,7 +277,9 @@ func (t *Tree) delete(z *Node) *Node {
 	}
 	t.size--
 
-	return y
+	y.parent = nil
+	y.left = nil
+	y.right = nil
 }
 
 func (t *Tree) deleteRepairNode(x *Node) {
@@ -285,26 +290,31 @@ func (t *Tree) deleteRepairNode(x *Node) {
 	for x != t.root && x.color == BLACK {
 		if x == x.parent.left {
 			w = x.sibling()
+			// case2
 			if w.color == RED {
 				w.color = BLACK
 				x.parent.color = RED
 				t.leftRotate(x.parent)
 				w = x.parent.right
 			}
+			// case3 4  这里是因为违反了性质五
 			if w.left.color == BLACK && w.right.color == BLACK {
 				w.color = RED
 				x = x.parent
 			} else {
+				// case5
 				if w.right.color == BLACK {
 					w.left.color = BLACK
 					w.color = RED
 					t.rightRotate(w)
 					w = x.parent.right
 				}
+				// case6
 				w.color = x.parent.color
 				x.parent.color = BLACK
 				w.right.color = BLACK
 				t.leftRotate(x.parent)
+				// 退出循环
 				x = t.root
 			}
 		} else {
@@ -334,6 +344,7 @@ func (t *Tree) deleteRepairNode(x *Node) {
 
 		}
 	}
+	// case1
 	x.color = BLACK
 }
 
@@ -429,7 +440,7 @@ func (n *Node) grandparent() *Node {
 
 func (n *Node) sibling() *Node {
 	p := n.father()
-	// No parent means no brother
+	// No parent means no sibling
 	if p == nil {
 		return nil
 	}
@@ -455,7 +466,7 @@ func (n *Node) successor() *Node {
 	}
 	y := n.parent
 	for y != nil && n == y.right {
-		//n = y
+		n = y
 		y = y.parent
 	}
 	return y

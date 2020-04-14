@@ -7,17 +7,18 @@ import (
 )
 
 func TestRBInsert(t *testing.T) {
-	root = &RBTree{
-		Key:    0,
-		Parent: nil,
-		Left:   nil,
-		Right:  nil,
-		Color:  Black,
-	}
+	tree := NewTree()
 	r := rand.New(rand.NewSource(time.Now().Unix()))
+	tree.Insert(5000, string(r.Intn(10000)))
 
 	for i := 0; i < 100; i++ {
-		RBInsert(r.Intn(10000))
+		n := r.Int63n(10000)
+		if n != 5000 {
+			tree.Insert(n, string(r.Intn(10000)))
+		}
 	}
-	inOrderRecu(root)
+	tree.Delete(5000)
+	tree.Traverse()
+	println(tree.size)
+
 }
