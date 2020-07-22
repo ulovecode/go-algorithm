@@ -1,4 +1,4 @@
-package cn
+package leetcode
 
 //编写一个程序判断给定的数是否为丑数。
 //

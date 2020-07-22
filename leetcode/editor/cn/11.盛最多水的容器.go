@@ -13,7 +13,7 @@
 // 输入: [1,8,6,2,5,4,8,3,7]
 //输出: 49
 //
-package cn
+package leetcode
 
 func maxArea(height []int) int {
 	low, high, maxArea := 0, len(height)-1, 0

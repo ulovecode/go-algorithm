@@ -26,7 +26,7 @@
 //2. 向下 -> 向下 -> 向右 -> 向右
 //
 //
-package cn
+package leetcode
 
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	n := len(obstacleGrid)

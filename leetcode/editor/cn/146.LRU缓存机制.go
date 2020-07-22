@@ -23,7 +23,7 @@
 //
 //
 
-package cn
+package leetcode
 
 import "container/list"
 

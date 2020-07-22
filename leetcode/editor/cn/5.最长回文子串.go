@@ -13,7 +13,7 @@
 //输出: "bb"
 //
 //
-package cn
+package leetcode
 
 func longestPalindrome(s string) string {
 	if s == "" {

@@ -15,7 +15,7 @@
 //
 //
 
-package cn
+package leetcode
 
 func minPathSum(grid [][]int) int {
 	dp := make([][]int, len(grid))

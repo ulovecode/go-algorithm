@@ -1,4 +1,4 @@
-package cn
+package leetcode
 
 //给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。
 //

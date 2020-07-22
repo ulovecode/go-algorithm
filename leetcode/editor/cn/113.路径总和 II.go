@@ -31,7 +31,7 @@
  *     Right *TreeNode
  * }
  */
-package cn
+package leetcode
 
 func pathSum(root *TreeNode, sum int) [][]int {
 	result := make([][]int, 0)

@@ -17,7 +17,7 @@
 //     偷窃到的最高金额 = 2 + 9 + 1 = 12 。
 //
 //
-package cn
+package leetcode
 
 import "math"
 

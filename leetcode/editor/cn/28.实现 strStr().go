@@ -1,4 +1,4 @@
-package cn
+package leetcode
 
 //实现 strStr() 函数。
 //

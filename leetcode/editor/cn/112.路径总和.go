@@ -25,7 +25,7 @@
  *     Right *TreeNode
  * }
  */
-package cn
+package leetcode
 
 func hasPathSum(root *TreeNode, sum int) bool {
 	if root == nil {

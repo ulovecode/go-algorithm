@@ -19,7 +19,7 @@
 //
 // 所有输入只包含小写字母 a-z 。
 //
-package cn
+package leetcode
 
 import "strings"
 

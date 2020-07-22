@@ -29,7 +29,7 @@
 //
 //
 
-package cn
+package leetcode
 
 func wordBreak(s string, wordDict []string) bool {
 	wordMap := make(map[string]struct{}, len(wordDict))

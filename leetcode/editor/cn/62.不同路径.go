@@ -26,7 +26,7 @@
 // 输入: friends = 7, n = 3
 //输出: 28
 //
-package cn
+package leetcode
 
 func uniquePaths(m int, n int) int {
 	dp := make([][]int, n)

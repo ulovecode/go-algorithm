@@ -22,7 +22,7 @@
 //     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 //
 //
-package cn
+package leetcode
 
 func lengthOfLongestSubstring(s string) int {
 	var slidingWindow = make(map[int32]int, len(s))

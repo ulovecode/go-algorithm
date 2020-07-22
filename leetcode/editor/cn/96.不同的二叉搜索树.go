@@ -14,7 +14,7 @@
 //   2     1         2                 3
 //
 
-package cn
+package leetcode
 
 func numTrees(n int) int {
 	dp := make([]int, n+1)

@@ -13,7 +13,7 @@
 //  [3,2,1]
 //]
 //
-package cn
+package leetcode
 
 func permute(nums []int) [][]int {
 	result := make([][]int, 0)

@@ -23,7 +23,7 @@
 // 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。
 //
 
-package cn
+package leetcode
 
 import "math"
 

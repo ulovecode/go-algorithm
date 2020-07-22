@@ -17,7 +17,7 @@
 // 如果你可以只使用 O(n) 的额外空间（n 为三角形的总行数）来解决这个问题，那么你的算法会很加分。
 //
 
-package cn
+package leetcode
 
 import "math"
 

@@ -45,7 +45,7 @@
  *     Right *TreeNode
  * }
  */
-package cn
+package leetcode
 
 func findBottomLeftValue(root *TreeNode) int {
 	_, result := leftBottom(root, 0)

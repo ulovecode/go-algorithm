@@ -1,4 +1,4 @@
-package cn
+package leetcode
 
 //设计一个支持以下两种操作的数据结构：
 //
